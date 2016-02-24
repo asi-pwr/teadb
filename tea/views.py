@@ -1,3 +1,8 @@
 from django.shortcuts import render
+from django.views import generic
+from tea.models import Tea
 
-# Create your views here.
+
+class IndexView(generic.ListView):
+    template_name = "tea/index.html"
+    model = Tea
