@@ -1,15 +1,11 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <title>Index TeaDB</title>
-</head>
-<body> 
+{% extends "../templates/base.html" %}
 
-{% for tea in tea_list %}
-{{ tea }}
-{% endfor %}
+{% block title %} TeaDB index {% endblock %}
 
-
-</body>
-</html>
+{% block content %}
+    <ul>
+    {% for tea in tea_list %}
+        <li>{{ tea }}</li>
+    {% endfor %}
+    </ul>
+{% endblock %}
