@@ -8,6 +8,11 @@ class IndexView(generic.ListView):
     model = Tea
 
 
+class TeaDetailView(generic.DetailView):
+    template_name = "tea/tea_detail.html"
+    model = Tea
+
+
 class ReviewView(generic.ListView):
     template_name = 'tea/tea_reviews.html'
     model = Review

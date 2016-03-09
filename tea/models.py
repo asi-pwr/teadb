@@ -16,6 +16,8 @@ class TeaType(models.Model):
     )
     tea_type=models.CharField(max_length=1, choices=tea_type_choices)
 
+    def __str__(self):
+        return "%s" % self.get_tea_type_display()
 
 class Tea(models.Model):
     name=models.CharField(max_length=50)
