@@ -28,5 +28,6 @@ class Tea(models.Model):
 
 
 class Review(models.Model):
-    contents=models.TextField()
-    author=models.CharField(max_length=50, default="Anonim")
+    reviewed_tea=models.ForeignKey(Tea)
+    content=models.TextField()
+    author=models.CharField(max_length=50)

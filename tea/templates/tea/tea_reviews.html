@@ -1,0 +1,9 @@
+{% extends 'base.html' %}
+
+{% block content %}
+    <ul>
+    {% for review in review_list %}
+        <li>{{ review.content }} - {{ review.author }}</li>
+    {% endfor %}
+    </ul>
+{% endblock %}
