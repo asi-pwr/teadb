@@ -5,7 +5,7 @@ from tea.views import IndexView, ReviewView, TeaDetailView
 
 urlpatterns = [
     url(r'^admin/', admin.site.urls),
-    url(r'^$',IndexView.as_view()),
-    url(r'^tea/(?P<pk>[0-9]+)/$', TeaDetailView.as_view()),
-    url(r'^tea/reviews/(?P<pk>[0-9]+)/$', ReviewView.as_view()),
+    url(r'^$',IndexView.as_view(), name='index'),
+    url(r'^tea/(?P<pk>[0-9]+)/$', TeaDetailView.as_view(), name='tea_detail'),
+    url(r'^tea/(?P<pk>[0-9]+)/reviews/$', ReviewView.as_view(), name='tea_reviews'),
 ]

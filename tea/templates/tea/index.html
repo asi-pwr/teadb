@@ -5,7 +5,7 @@
 {% block content %}
     <ul>
     {% for tea in tea_list %}
-        <li>{{ tea }}</li>
+        <li><a href="{% url 'tea_detail' tea.id %}">{{ tea }}</a></li>
     {% endfor %}
     </ul>
 {% endblock %}
