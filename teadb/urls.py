@@ -1,7 +1,7 @@
 from django.conf.urls import url
 from django.contrib import admin
 
-from tea.views import IndexView, ReviewView, TeaDetailView
+from tea.views import IndexView, ReviewView, TeaDetailView, CreateReviewView
 
 urlpatterns = [
     url(r'^admin/', admin.site.urls),
