@@ -3,9 +3,13 @@
 {% block title %} TeaDB index {% endblock %}
 
 {% block content %}
+    {% if tea_list %}
     <ul>
     {% for tea in tea_list %}
         <li><a href="{% url 'tea_detail' tea.id %}">{{ tea }}</a></li>
     {% endfor %}
     </ul>
+    {% else %}
+    brak herbat w bazie danych
+    {% endif %}
 {% endblock %}
