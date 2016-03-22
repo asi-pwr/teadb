@@ -1,9 +1,10 @@
 {% extends 'base.html' %}
 
 {% block content %}
-    <form action="{% url 'create_review' tea.id%}" method="post">
-    {% csrf_token %}
-    {{ form.as_p }}
+    <form method="post">
+        {% csrf_token %}
+        {{ form.field.as_hidden }}
+        {{ form.as_p }}
     <input type="submit" value="Zapisz">
     </form>
 {% endblock %}
