@@ -1,9 +1,13 @@
 {% extends 'base.html' %}
+{% load tea_detail %}
 
 {% block content %}
     <h1>Nazwa: {{ tea.name }}</h1>
     <p>Rodzaj: {{ tea.type }}</p>
     <p>Opis: {{ tea.description }}</p>
     <p>Region: {{ tea.region }}</p>
-    <a href='{% url 'tea_reviews' tea.id %}'>Kliknij, aby zobaczyć recenzje</a>
+    <p>Recenzje:</p>
+    {% show_tea_reviews tea %}
+    <p>Dodaj recenzję</p>
+    {% show_create_review_form tea.id %}
 {% endblock %}

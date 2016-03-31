@@ -15,23 +15,17 @@ class TeaDetailView(DetailView):
     model = Tea
 
 
-class ReviewView(ListView):
-    template_name = 'tea/tea_reviews.html'
-    model = Review
-
-
 class ReviewForm(ModelForm):
     class Meta:
         model = Review
-        fields = ['content','author']
+        fields = ['content', 'author']
 
 
 class CreateReviewView(FormView):
     form_class = ReviewForm
-    template_name = 'tea/create_review.html'
 
     def form_valid(self, form):
         review = form.save(commit=False)
         review.reviewed_tea = Tea.objects.get(id=self.kwargs['pk'])
         review.save()
-        return HttpResponseRedirect(reverse('tea_reviews', args=(self.kwargs['pk'])))
+        return HttpResponseRedirect(reverse('tea_detail', args=(self.kwargs['pk'])))
