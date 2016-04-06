@@ -35,3 +35,19 @@ class CreateReviewView(FormView):
         context = super(CreateReviewView, self).get_context_data(**kwargs)
         context['tea'] = Tea.objects.get(id=self.kwargs['pk'])
         return context
+
+
+class TeaAddForm(ModelForm):
+    class Meta:
+        model = Tea
+        fields = '__all__'
+
+
+class AddTeaView(FormView):
+    form_class = TeaAddForm
+    template_name = 'tea/add_tea.html'
+    success_url = '/'
+
+    def form_valid(self, form):
+        form.save()
+        return HttpResponseRedirect(reverse('index'))

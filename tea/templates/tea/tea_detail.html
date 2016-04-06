@@ -7,7 +7,12 @@
     <p>Opis: {{ tea.description }}</p>
     <p>Region: {{ tea.region }}</p>
     <p>Recenzje:</p>
-    {% show_tea_reviews tea %}
+    {% if tea.review_set.count %}
+        {% show_tea_reviews tea %}
+    {% else %}
+        <p>Brak recenzji dla tej herbaty.</p>
+    {% endif %}
     <p>Dodaj recenzję</p>
     {% show_create_review_form tea.id %}
+    <a href="{% url 'index' %}">Powrót</a>
 {% endblock %}
