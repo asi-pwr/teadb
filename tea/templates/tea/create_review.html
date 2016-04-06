@@ -1,0 +1,16 @@
+{% extends 'base.html' %}
+{% load tea_detail %}
+
+{% block content %}
+    {% show_tea_detail tea.id %}
+
+    <p>Recenzje:</p>
+    {% show_tea_reviews tea %}
+
+    <p>Dodaj recenzje:</p>
+    <form method="post">
+        {% csrf_token %}
+        {{ form.as_p }}
+        <input type="submit" value="Zapisz">
+    </form>
+{% endblock %}
