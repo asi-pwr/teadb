@@ -2,7 +2,7 @@ from django.forms import ModelForm
 from django.http import HttpResponseRedirect
 from django.core.urlresolvers import reverse
 from django.views.generic import ListView, DetailView, FormView
-from tea.models import Tea, Review
+from tea.models import Tea, Review, TeaType
 
 
 class IndexView(ListView):
@@ -40,12 +40,28 @@ class CreateReviewView(FormView):
 class TeaAddForm(ModelForm):
     class Meta:
         model = Tea
-        fields = '__all__'
+        fields = ['name', 'type', 'description', 'region']
 
 
 class AddTeaView(FormView):
     form_class = TeaAddForm
     template_name = 'tea/add_tea.html'
+    success_url = '/'
+
+    def form_valid(self, form):
+        form.save()
+        return HttpResponseRedirect(reverse('index'))
+
+
+class TeaTypeAddForm(ModelForm):
+    class Meta:
+        model = TeaType
+        fields = ['tea_type']
+
+
+class AddTeaTypeView(FormView):
+    form_class = TeaTypeAddForm
+    template_name = 'tea/add_tea_type.html'
     success_url = '/'
 
     def form_valid(self, form):

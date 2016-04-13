@@ -1,7 +1,7 @@
 from django.conf.urls import url
 from django.contrib import admin
 
-from tea.views import IndexView, TeaDetailView, CreateReviewView, AddTeaView
+from tea.views import IndexView, TeaDetailView, CreateReviewView, AddTeaView, AddTeaTypeView
 
 urlpatterns = [
     url(r'^admin/', admin.site.urls),
@@ -9,4 +9,5 @@ urlpatterns = [
     url(r'^tea/(?P<pk>[0-9]+)/$', TeaDetailView.as_view(), name='tea_detail'),
     url(r'^tea/(?P<pk>[0-9]+)/reviews/create/$', CreateReviewView.as_view(), name='create_review'),
     url(r'^tea/add/$', AddTeaView.as_view(), name='add_tea'),
+    url(r'^tea/type/add/$', AddTeaTypeView.as_view(), name='add_tea_type'),
 ]
